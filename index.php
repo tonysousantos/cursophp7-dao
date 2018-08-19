@@ -17,17 +17,44 @@ echo $root;
 $lista = Usuario::getList();
 echo json_encode($lista);
 
-echo "<br>";
+echo "<hr>";
 
 // Carrega uma lista de usuarios buscando pelo login
 $search = Usuario::search("user");
 echo json_encode($search);
 
-echo "<br>";
+echo "<hr>";
 
 // Carrega um usuário usando o login e a senha
 $usuario = new Usuario();
 $usuario->login("user","123456");
 echo $usuario;
+
+echo "<hr>";
+
+// INSERE UM NOVO USUÁRIO
+/*
+$aluno = new Usuario();
+$aluno->setDeslogin("asousa");
+$aluno->setDessenha("123");
+$aluno->insert();
+echo $aluno;
+*/
+
+// INSERE UM NOVO USUÁRIO USANDO METO CONSTRUTOR
+/*
+$aluno = new Usuario("asousa","123");
+$aluno->insert();
+echo $aluno;
+*/
+
+// ALTERANDO DADOS DE USUARIO
+$usuario = new Usuario();
+$usuario->loadByid(6);
+$usuario->update("asousa alterado","jksdjs");
+echo $usuario;
+
+
+
 
 ?>
