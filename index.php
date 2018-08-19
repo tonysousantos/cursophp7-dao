@@ -49,11 +49,18 @@ echo $aluno;
 */
 
 // ALTERANDO DADOS DE USUARIO
+/*
 $usuario = new Usuario();
 $usuario->loadByid(6);
 $usuario->update("asousa alterado","jksdjs");
 echo $usuario;
+*/
 
+// DELETANDO DADOS DE USUARIO
+$usuario = new Usuario();
+$usuario->loadById(6);
+$usuario->delete();
+echo $usuario;
 
 
 
